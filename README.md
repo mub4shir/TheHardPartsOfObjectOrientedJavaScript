@@ -328,5 +328,31 @@
     -- 99% of developers have no idea how it works and therefore fail interviews
     
 ### javaScript uses this __proto__ link to give objects, functions and arrays a bunch of bonus functionality. all objects by default __proto__
-        
+    
+    const obj = {
+        num:3
+    }
+    obj.num // 3
+    obj.hasOwnProperty("num") // ? where's this method 
+    Object.prototype // {hasOwnProperty: FUNCTION}
+
+    --  with Object.create we override the default __proto__ reference to 
+        Object.prototype and replace with functionStore
+    --  But functionStore is an object so it has a __proto__ reference to 
+        Object.prototype- we just intercede in the chain 
+
+### arrays and functions are also objects so they get access to all the functions in the Object.prototype but also more goodies 
+    function multuplyBy2(num){
+        return num*2;
+    }
+
+    multiplyBy2.toString() // where is this method ?
+    Function.prototype // {toString: FUNCTION, call: FUNCTION, bind : FUNCTION}
+    multiplyBy2.hasOwnProperty("score") // where's this function ?
+    Function.prototype.__proto__ // Object.prototype {hasOwnProperty: FUNCTION}
+    
+    core diagrammed version of what is the most like intricate, fincky parts of javascript 
+
+
+
 
